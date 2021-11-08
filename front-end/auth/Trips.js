@@ -2,15 +2,18 @@ import { FaExclamationCircle } from "react-icons/fa";
 import { signin, authenticate, isAutheticated } from "../auth/Auth";
 
 export const trips = async (trip, token) => {
-  return await fetch("https://zoho-expense-server.vercel.app/api/createtrip", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: `bearer ${token}`,
-    },
-    body: JSON.stringify(trip),
-  })
+  return await fetch(
+    "https://zoho-expense-server.herokuapp.com/api/createtrip",
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `bearer ${token}`,
+      },
+      body: JSON.stringify(trip),
+    }
+  )
     .then((response) => {
       return response.json();
     })
@@ -22,7 +25,7 @@ export const getTrip = (email) => {
   // let email = user.email;
   console.log(token);
   return fetch(
-    `https://zoho-expense-server.vercel.app/api/tripsofuser/${email}`,
+    `https://zoho-expense-server.herokuapp.com/api/tripsofuser/${email}`,
     {
       method: "GET",
       headers: {
@@ -38,12 +41,12 @@ export const getTrip = (email) => {
     .catch((err) => console.log(err));
 };
 
-export const getOrg = (org_name) => {
-  const { token } = isAutheticated();
+export const getOrg = async (org_name) => {
+  const { token } = await isAutheticated();
   // let email = user.email;
   console.log(token);
-  return fetch(
-    `https://zoho-expense-server.vercel.app/api/alltrips/${org_name}`,
+  return await fetch(
+    `https://zoho-expense-server.herokuapp.com/api/alltrips/${org_name}`,
     {
       method: "GET",
       headers: {
@@ -59,12 +62,12 @@ export const getOrg = (org_name) => {
     .catch((err) => console.log(err));
 };
 
-export const deleteTrip = (_id) => {
+export const deleteTrip = async (_id) => {
   const { token } = isAutheticated();
   // let email = user.email;
   console.log(token);
-  return fetch(
-    `https://zoho-expense-server.vercel.app/api/deletetrips/${_id}`,
+  return await fetch(
+    `https://zoho-expense-server.herokuapp.com/api/deletetrips/${_id}`,
     {
       method: "DELETE",
       headers: {
@@ -80,11 +83,11 @@ export const deleteTrip = (_id) => {
     .catch((err) => console.log(err));
 };
 
-export const getId = (id) => {
+export const getId = async (id) => {
   const { token } = isAutheticated();
   // let email = user.email;
   console.log(token);
-  return fetch(`https://zoho-expense-server.vercel.app/api/${id}`, {
+  return await fetch(`https://zoho-expense-server.herokuapp.com/api/${id}`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -119,7 +122,7 @@ export const getId = (id) => {
 export const expenses = async (expense) => {
   const { token } = isAutheticated();
   return await fetch(
-    "https://zoho-expense-server.vercel.app/api/createexpense",
+    "https://zoho-expense-server.herokuapp.com/api/createexpense",
     {
       method: "POST",
       headers: {
@@ -142,7 +145,7 @@ export const getExpense = async (email) => {
   console.log(token);
   try {
     const response = await fetch(
-      `https://zoho-expense-server.vercel.app/api/expenseofuser/${email}`,
+      `https://zoho-expense-server.herokuapp.com/api/expenseofuser/${email}`,
       {
         method: "GET",
         headers: {

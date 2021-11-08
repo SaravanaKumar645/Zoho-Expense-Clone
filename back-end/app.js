@@ -29,6 +29,7 @@ mongoose
 routes.forEach((route, index) => {
   fastify.route(route);
 });
+fastify.register(require("fastify-formbody"));
 fastify.register(require("./middleware/auth_middleware"));
 fastify.register(require("./fastify-router.js/authRouter"));
 fastify.register(require("./fastify-router.js/trips"));

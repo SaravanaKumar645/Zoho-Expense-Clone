@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon app.js",
     "client": "cd .. && cd front-end && npm run dev",
-    "start": "concurrently \"npm run dev\" \"npm run client\""
+    "server": "concurrently \"npm run dev\" \"npm run client\"",
+    "start": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,6 +19,7 @@
     "dotenv": "^10.0.0",
     "fastify": "^3.22.0",
     "fastify-cors": "^6.0.2",
+    "fastify-formbody": "^5.1.0",
     "fastify-jwt": "^3.2.0",
     "fastify-plugin": "^3.0.0",
     "mongoose": "^6.0.10"

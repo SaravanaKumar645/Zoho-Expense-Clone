@@ -6,6 +6,7 @@ module.exports = fastifyPlugin(async (fastify) => {
     try {
       await req.jwtVerify();
     } catch (error) {
+      console.log(error);
       res.send(error);
     }
   });
