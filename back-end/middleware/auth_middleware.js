@@ -10,7 +10,6 @@ module.exports = fastifyPlugin(async (fastify) => {
     }
   });
   fastify.decorate("isAdmin", async (req, reply) => {
-    const id = usereq.params.id;
     const admin = await User.findById(courseid);
     console.log(admin.role);
 
