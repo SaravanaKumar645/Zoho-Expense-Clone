@@ -1,6 +1,7 @@
 const fastify = require("fastify")({
   logger: true,
 });
+require("dotenv").config();
 const boom = require("boom");
 
 // bring in routes
@@ -18,7 +19,7 @@ fastify.register(require("fastify-jwt"), {
 // db connection
 mongoose
   .connect(
-    "mongodb+srv://pirates123:pirates123@techpirates.inpsa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.8sjto.mongodb.net/Zoho-Expense?retryWrites=true&w=majority`
   )
   .then(() => console.log("MONGO is ready !!"))
   .catch((err) => console.log(err));
