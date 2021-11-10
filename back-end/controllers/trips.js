@@ -5,7 +5,6 @@ exports.createtrips = async function (req, reply) {
   const trip = new Trip({
     email: req.body.email,
     org_name: req.body.org_name,
-    // trip_no:trip_id,
     travel_type: req.body.travel_type,
     trip_name: req.body.trip_name,
     trip_destination: req.body.trip_destination,
@@ -19,7 +18,6 @@ exports.createtrips = async function (req, reply) {
     check_in: req.body.check_in,
     check_out: req.body.check_out,
     description_hotel: req.body.description_hotel,
-
     approver: req.body.approver,
   });
   try {

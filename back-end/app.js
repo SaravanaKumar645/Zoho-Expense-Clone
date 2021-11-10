@@ -34,6 +34,8 @@ fastify.register(require("./middleware/auth_middleware"));
 fastify.register(require("./fastify-router.js/authRouter"));
 fastify.register(require("./fastify-router.js/trips"));
 fastify.register(require("./fastify-router.js/expense"));
+fastify.register(require("./fastify-router.js/reportsRouter"));
+
 fastify.get("/", async (req, res) => {
   return { vistor: "gowtham" };
 });
